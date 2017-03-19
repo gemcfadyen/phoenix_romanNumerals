@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Roman Numerals!</title>
+  </head>
+
+  <body>
+    <form action="<%= roman_numeral_path(@conn, :convert) %>" method="post">
+      <tr>
+        <td>
+          <h1>Enter a number to convert:  </h1>
+        </td>
+        <td>
+          <input type="hidden" name="_csrf_token" value="<%= get_csrf_token() %>">
+          <input type="text" name="decimal" style="height:95px; width:95px; font-size:18pt" />
+        </td>
+        <td>
+          <button type="submit" class="btn btn-primary">Convert</button>
+        </td>
+      </tr>
+      </table>
+    </form>
+    <div>
+      <%= for {key, value} <- @converted_numeral do %>
+        <h2> <%= key %> <h2>
+        <h2> <%= value %> <h2>
+      <% end %>
+    </div>
+  </body>
+</html>
+
