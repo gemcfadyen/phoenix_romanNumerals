@@ -14,4 +14,6 @@ COPY . .
 
 RUN mix deps.get
 
+EXPOSE 3000
+
 CMD ["mix", "phoenix.server"]
